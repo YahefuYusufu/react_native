@@ -1,0 +1,46 @@
+import React, { useState, useEffect } from "react"
+import { StatusBar } from "expo-status-bar"
+import { StyleSheet } from "react-native"
+
+import { NavigationContainer } from "@react-navigation/native"
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import { useFonts } from "expo-font"
+
+import IntroScreen from "./src/screens/IntroScreen"
+import LandingScreen from "./src/screens/LandingScreen"
+import LoadingScreen from "./src/screens/LoadingScreen"
+
+const Stack = createNativeStackNavigator()
+
+export default function App() {
+  const [isLoading, setIsLoading] = useState(true)
+  const [fontsLoader] = useFonts({
+    "Poppins-Bold": require("./assets/fonts/poppins/Poppins-Bold.ttf"),
+    "Poppins-Medium": require("./assets/fonts/poppins/Poppins-Medium.ttf"),
+    "Poppins-Regular": require("./assets/fonts/poppins/Poppins-Regular.ttf"),
+  })
+  useEffect(() => {
+    if (fontsLoader) {
+      setIsLoading(false)
+    }
+  }, [fontsLoader])
+  if (isLoading) <LoadingScreen />
+  return (
+    <NavigationContainer style={styles.container}>
+      <Stack.Navigator>
+        <Stack.Screen name="intro" component={IntroScreen} />
+        <Stack.Screen name="landing" component={LandingScreen} />
+      </Stack.Navigator>
+      <StatusBar style="auto" />
+    </NavigationContainer>
+  )
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+})
