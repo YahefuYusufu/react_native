@@ -68,15 +68,13 @@ const styles = StyleSheet.create({
 		marginTop: 24,
 	},
 	plus: {
-		fontSize: 32,
 		marginRight: 32,
-		padding: 12,
-		borderRadius: 15,
+		textAlign: "center",
+		backgroundColor: "#eee",
 	},
 	minus: {
-		fontSize: 32,
-		padding: 12,
-		borderRadius: 15,
+		backgroundColor: "#eee",
+		textAlign: "center",
 	},
 	restButton: {
 		fontSize: 32,
@@ -84,5 +82,6 @@ const styles = StyleSheet.create({
 		backgroundColor: "gray",
 		textAlign: "center",
 		padding: 8,
+		borderRadius: 15,
 	},
 })
