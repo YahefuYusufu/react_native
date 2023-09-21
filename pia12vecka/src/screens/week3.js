@@ -35,7 +35,7 @@ const week3 = () => {
 			<Button
 				title="click me"
 				onPress={() => {
-					setAddName([data])
+					setAddName("prg")
 				}}
 			/>
 			<FlatList
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 	},
 	textInput: {
-		backgroundColor: "#000",
+		backgroundColor: "#00ff",
 		padding: 12,
 		borderRadius: 15,
 		color: "#fff",
