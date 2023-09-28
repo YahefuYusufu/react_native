@@ -1,14 +1,16 @@
 import React from "react"
-import { StyleSheet, Text, View } from "react-native"
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 
 const Home = () => {
 	const navigation = useNavigation()
 	return (
 		<View style={styles.view}>
-			<Text style={styles.text} onPress={() => navigation.push("Profile")}>
-				Profile
-			</Text>
+			<TouchableOpacity onPress={() => {}}>
+				<Text style={styles.text} onPress={() => navigation.push("Profile")}>
+					Profile
+				</Text>
+			</TouchableOpacity>
 		</View>
 	)
 }

@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 		fontWeight: "bold",
 		padding: 12,
-		backgroundColor: "blue",
+		backgroundColor: "yellow",
 		color: "white",
 	},
 })
