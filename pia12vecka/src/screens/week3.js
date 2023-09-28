@@ -8,44 +8,43 @@ import {
 } from "react-native"
 import React, { useState } from "react"
 import FancyBox from "../../FancyBox"
-
-const data = [
-	{ key: "Devin", lastName: "David", age: "32" },
-	{ key: "Dan", lastName: "David", age: "32" },
-	{ key: "Dominic", lastName: "David", age: "32" },
-	{ key: "Jackson", lastName: "David", age: "32" },
-	{ key: "James", lastName: "David", age: "32" },
-	{ key: "Joel", lastName: "David", age: "32" },
-	{ key: "John", lastName: "David", age: "32" },
-	{ key: "Jillian", lastName: "David", age: "32" },
-	{ key: "Jimmy", lastName: "David", age: "32" },
-	{ key: "Julie", lastName: "David", age: "32" },
-]
+import { StatusBar } from "expo-status-bar"
 
 const week3 = () => {
-	const [addName, setAddName] = useState("Yusuf")
-	const [people, setPeople] = useState()
+	const [addName, onAddName] = useState("prg")
+
+	const [people, setPeople] = useState([{ key: "Xerxes", lastName: "prg" }])
+
+	const letsAddPerson = () => {
+		if (addName != "") {
+			const newList = people.concat({ key: addName, lastName: addName })
+			setPeople(newList)
+		}
+	}
+
 	return (
 		<View style={styles.container}>
 			<TextInput
-				onChange={setAddName}
+				onChange={onAddName}
 				value={addName}
 				style={styles.textInput}
 			/>
+
 			<Button
-				title="click me"
+				title="Add till"
 				onPress={() => {
-					setAddName("prg")
+					letsAddPerson()
 				}}
 			/>
+
 			<FlatList
-				data={data}
+				data={people}
 				renderItem={({ item }) => (
-					<Text style={styles.item}>
-						<FancyBox data={item.key} style={styles.item} />
-					</Text>
+					<FancyBox key={item.key} name={item.lastName} />
 				)}
 			/>
+
+			<StatusBar style="auto" />
 		</View>
 	)
 }
@@ -66,5 +65,8 @@ const styles = StyleSheet.create({
 		padding: 12,
 		borderRadius: 15,
 		color: "#fff",
+	},
+	button: {
+		marginTop: 30,
 	},
 })

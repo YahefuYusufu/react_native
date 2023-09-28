@@ -1,10 +1,18 @@
-import { FlatList, StyleSheet, Text, View } from "react-native"
-import React from "react"
+import { Button, FlatList, StyleSheet, Text, View } from "react-native"
+import React, { useState } from "react"
 
-const FancyBox = ({ data }) => {
+const FancyBox = (props) => {
+	const [number, setNumber] = useState(0)
 	return (
 		<View style={styles.container}>
-			<Text style={styles.item}>{data}</Text>
+			<Text style={styles.item}>{props.name}</Text>
+			<Text style={styles.item}>{number}</Text>
+			<Button
+				title="click"
+				onPress={() => {
+					setNumber(number + 1)
+				}}
+			/>
 		</View>
 	)
 }
