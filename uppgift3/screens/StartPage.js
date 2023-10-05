@@ -19,11 +19,7 @@ const StartPage = ({ navigation }) => {
 
 	return (
 		<SafeAreaView>
-			<FlatList
-				data={data}
-				renderItem={renderItem}
-				keyExtractor={(item) => item.name}
-			/>
+			<FlatList data={data} renderItem={renderItem} keyExtractor={(id) => id} />
 		</SafeAreaView>
 	)
 }
