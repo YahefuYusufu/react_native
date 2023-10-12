@@ -12,12 +12,8 @@ const AddTodo = ({ addTodo }) => {
 	const [text, setText] = useState("")
 
 	const handleTodo = () => {
-		if (text.length == !0) {
-			addTodo(text)
-			setText("")
-		} else {
-			alert("Please enter a todo")
-		}
+		addTodo(text)
+		setText("")
 	}
 	return (
 		<View style={styles.container}>

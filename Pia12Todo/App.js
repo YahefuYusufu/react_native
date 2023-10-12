@@ -3,6 +3,7 @@ import { useState } from "react"
 import { StyleSheet, SafeAreaView } from "react-native"
 import TodoList from "./screens/TodoList"
 import AddTodo from "./screens/AddTodo"
+import PiaApp from "./screens/pia/PiaApp"
 
 export default function App() {
 	const [todos, setTodos] = useState([])
@@ -19,9 +20,10 @@ export default function App() {
 
 	return (
 		<SafeAreaView style={styles.container}>
-			<TodoList todos={todos} removeTodo={removeTodo} />
+			{/* <TodoList todos={todos} removeTodo={removeTodo} />
 			<AddTodo addTodo={addTodo} />
-			<StatusBar style="auto" />
+			<StatusBar style="auto" /> */}
+			<PiaApp />
 		</SafeAreaView>
 	)
 }
