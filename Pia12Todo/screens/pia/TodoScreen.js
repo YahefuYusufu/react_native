@@ -3,8 +3,10 @@ import { useEffect, useState } from "react"
 import { Button, FlatList, TextInput, TouchableOpacity } from "react-native"
 import { StyleSheet, Text, View } from "react-native"
 import TodoRow from "./TodoRow"
+import TodoHeader from "./TodoHeader"
+import TodoError from "./TodoError"
 
-const TodoScreen = ({ navigation, route }) => {
+const TodoScreen = ({ navigation, route, errorMessage }) => {
 	const [addtodo, setAddtodo] = useState("")
 
 	const [todoitems, setTodoitems] = useState([
@@ -71,6 +73,8 @@ const TodoScreen = ({ navigation, route }) => {
 
 	return (
 		<View style={styles.container}>
+			<TodoHeader />
+			<TodoError errormessage={errormessage} />
 			{errormessage != "" && <Text>{errormessage}</Text>}
 
 			<View style={styles.inputButton}>
