@@ -14,6 +14,7 @@ import { StyleSheet, Text, View } from "react-native"
 import TodoRow from "./TodoRow"
 import TodoHeader from "./TodoHeader"
 import TodoError from "./TodoError"
+import { doFunStuff, sortByDone } from "./TodoHelper"
 
 const TodoScreen = ({ navigation, route, errorMessage }) => {
 	const [addtodo, setAddtodo] = useState("")
@@ -54,7 +55,7 @@ const TodoScreen = ({ navigation, route, errorMessage }) => {
 		if (addtodo != "") {
 			const newtodo = todoitems.concat({ key: addtodo })
 
-			newtodo.sort(compare)
+			newtodo.sort(sortByDone)
 
 			setTodoitems(newtodo)
 			setAddtodo("")
@@ -73,7 +74,7 @@ const TodoScreen = ({ navigation, route, errorMessage }) => {
 			newlist[rownumber].isdone = true
 		}
 
-		newlist.sort(compare)
+		newlist.sort(sortByDone)
 
 		setTodoitems(newlist)
 	}
@@ -84,6 +85,19 @@ const TodoScreen = ({ navigation, route, errorMessage }) => {
 		setTodoitems(newList)
 	}
 
+	function filtertodo(todo) {
+		if (listType == "all") {
+			return true
+		}
+
+		if (listType == "done") {
+			return todo.isdone == true
+		}
+
+		if (listType == "todo") {
+			return todo.isdone != true
+		}
+	}
 	return (
 		<SafeAreaView style={styles.container}>
 			<TodoHeader />
@@ -111,6 +125,44 @@ const TodoScreen = ({ navigation, route, errorMessage }) => {
 							addToTheList()
 						}}
 						color={"white"}
+					/>
+				</TouchableOpacity>
+			</View>
+			<View style={styles.filterButton}>
+				<TouchableOpacity
+					style={
+						listType == "all"
+							? styles.filterSelectedButton
+							: styles.filterNotSelected
+					}>
+					<Button
+						title="all"
+						color={"white"}
+						onPress={() => setListType("all")}
+					/>
+				</TouchableOpacity>
+				<TouchableOpacity
+					style={
+						listType == "todo"
+							? styles.filterSelectedButton
+							: styles.filterNotSelected
+					}>
+					<Button
+						title="todo"
+						color={"white"}
+						onPress={() => setListType("todo")}
+					/>
+				</TouchableOpacity>
+				<TouchableOpacity
+					style={
+						listType == "done"
+							? styles.filterSelectedButton
+							: styles.filterNotSelected
+					}>
+					<Button
+						title="done"
+						color={"white"}
+						onPress={() => setListType("done")}
 					/>
 				</TouchableOpacity>
 			</View>
@@ -149,7 +201,7 @@ const TodoScreen = ({ navigation, route, errorMessage }) => {
 						opacity: 0.5,
 					}}>
 					<Text style={{ color: "#fff" }}>Loading...</Text>
-					<ActivityIndicator size={20} />
+					{/* <ActivityIndicator size={20} /> */}
 				</View>
 			</View>
 			<StatusBar style="light" />
@@ -182,6 +234,25 @@ const styles = StyleSheet.create({
 	Button: {
 		backgroundColor: "green",
 		borderRadius: 8,
+
+		margin: 10,
+	},
+	filterButton: {
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "space-evenly",
+		marginBottom: 20,
+		width: "100%",
+	},
+	filterSelectedButton: {
+		backgroundColor: "red",
+		borderRadius: 8,
+		margin: 10,
+	},
+	filterNotSelected: {
+		backgroundColor: "green",
+		borderRadius: 8,
+		margin: 10,
 	},
 })
 
