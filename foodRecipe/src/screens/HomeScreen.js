@@ -16,6 +16,8 @@ import {
 import { BellIcon, MagnifyingGlassIcon } from "react-native-heroicons/outline"
 import axios from "axios"
 import Categories from "../components/Categories"
+import Recipes from "../components/Recipes"
+import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry"
 
 const HomeScreen = () => {
 	const [activeCategory, setActiveCategory] = useState("Beef")
@@ -24,7 +26,14 @@ const HomeScreen = () => {
 
 	useEffect(() => {
 		getCategories()
+		getRecipes()
 	}, [])
+
+	const handleChangeCategory = (category) => {
+		getRecipes(category)
+		setActiveCategory(category)
+		setMeals([])
+	}
 
 	const getCategories = async () => {
 		try {
@@ -39,8 +48,19 @@ const HomeScreen = () => {
 			console.log("something wrong,", err.message)
 		}
 	}
-	const handleChangeCategory = (category) => {
-		setActiveCategory(category)
+
+	const getRecipes = async (category = "Beef") => {
+		try {
+			const response = await axios.get(
+				`https://themealdb.com/api/json/v1/1/filter.php?c=${category}`
+			)
+			// console.log('got recipes: ',response.data);
+			if (response && response.data) {
+				setMeals(response.data.meals)
+			}
+		} catch (err) {
+			console.log("error: ", err.message)
+		}
 	}
 
 	return (
@@ -99,11 +119,13 @@ const HomeScreen = () => {
 						/>
 					)}
 				</View>
+				{/* recipes */}
+				<View>
+					<Recipes categories={categories} meals={meals} />
+				</View>
 			</ScrollView>
 		</SafeAreaView>
 	)
 }
 
 export default HomeScreen
-
-const styles = StyleSheet.create({})

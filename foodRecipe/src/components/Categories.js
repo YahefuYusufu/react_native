@@ -20,7 +20,7 @@ const Categories = ({ categories, handleChangeCategory, activeCategory }) => {
 				horizontal
 				showsHorizontalScrollIndicator={false}
 				className="space-x-4"
-				contentContainerStyle={{ paddingHorizontal: 12 }}>
+				contentContainerStyle={{ paddingHorizontal: 15 }}>
 				{categories.map((cat, index) => {
 					let isActive = cat.strCategory == activeCategory
 					let activeButtonClass = isActive ? " bg-amber-400" : " bg-black/10"
