@@ -1,6 +1,15 @@
 import { StatusBar } from "expo-status-bar"
-import { useEffect, useState } from "react"
-import { Button, FlatList, TextInput, TouchableOpacity } from "react-native"
+import { useEffect, useRef, useState } from "react"
+import {
+	ActivityIndicator,
+	Button,
+	FlatList,
+	Platform,
+	SafeAreaView,
+	Switch,
+	TextInput,
+	TouchableOpacity,
+} from "react-native"
 import { StyleSheet, Text, View } from "react-native"
 import TodoRow from "./TodoRow"
 import TodoHeader from "./TodoHeader"
@@ -8,6 +17,7 @@ import TodoError from "./TodoError"
 
 const TodoScreen = ({ navigation, route, errorMessage }) => {
 	const [addtodo, setAddtodo] = useState("")
+	const textRef = useRef()
 
 	const [todoitems, setTodoitems] = useState([
 		{ key: "meeting", isdone: false },
@@ -15,6 +25,9 @@ const TodoScreen = ({ navigation, route, errorMessage }) => {
 	])
 
 	const [errormessage, setErrormessage] = useState("")
+
+	const [listType, setListType] = useState()
+	const [letsGo, setLetsGo] = useState(false)
 
 	useEffect(() => {
 		if (route.params?.todoTitle) {
@@ -72,17 +85,24 @@ const TodoScreen = ({ navigation, route, errorMessage }) => {
 	}
 
 	return (
-		<View style={styles.container}>
+		<SafeAreaView style={styles.container}>
 			<TodoHeader />
+			<Switch value={letsGo} onValueChange={setLetsGo} />
 			<TodoError errormessage={errormessage} />
 			{errormessage != "" && <Text>{errormessage}</Text>}
 
 			<View style={styles.inputButton}>
 				<TextInput
+					ref={textRef}
 					value={addtodo}
 					onChangeText={setAddtodo}
 					placeholder="Add todo"
 					style={styles.textInput}
+					secureTextEntry={false}
+					inputMode="text"
+					onSubmitEditing={() => {
+						addToTheList()
+					}}
 				/>
 				<TouchableOpacity style={styles.Button}>
 					<Button
@@ -116,8 +136,24 @@ const TodoScreen = ({ navigation, route, errorMessage }) => {
 				)}
 			/>
 
-			<StatusBar style="auto" />
-		</View>
+			{Platform.OS === "ios" && <Text>IOS</Text>}
+
+			<View style={{ backgroundColor: "#00ff00", height: 200, width: 200 }}>
+				<View
+					style={{
+						backgroundColor: "#000000",
+						position: "absolute",
+						top: 0,
+						height: "100%",
+						width: "100%",
+						opacity: 0.5,
+					}}>
+					<Text style={{ color: "#fff" }}>Loading...</Text>
+					<ActivityIndicator size={20} />
+				</View>
+			</View>
+			<StatusBar style="light" />
+		</SafeAreaView>
 	)
 }
 

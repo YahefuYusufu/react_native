@@ -22,10 +22,10 @@ const AddTodo = ({ addTodo }) => {
 				placeholder="Add a todo..."
 				value={text}
 				onChangeText={(value) => setText(value)}
+				inputMode="text"
 			/>
-			<TouchableOpacity style={styles.Button}>
-				<Button title="Add" color="#fff" onPress={handleTodo} />
-			</TouchableOpacity>
+
+			<Button title="Add" color="#000" onPress={handleTodo} />
 		</View>
 	)
 }
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
 		padding: 12,
 	},
 	Button: {
-		backgroundColor: "green",
+		backgroundColor: "black",
 		borderRadius: 8,
 	},
 })
