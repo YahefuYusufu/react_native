@@ -18,7 +18,7 @@ import axios from "axios"
 import Categories from "../components/Categories"
 
 const HomeScreen = () => {
-	const [activeCategory, setActiveCategory] = useState("gox")
+	const [activeCategory, setActiveCategory] = useState("Beef")
 	const [categories, setCategories] = useState([])
 	const [meals, setMeals] = useState([])
 
@@ -39,7 +39,9 @@ const HomeScreen = () => {
 			console.log("something wrong,", err.message)
 		}
 	}
-	const handleChangeCategory = () => {}
+	const handleChangeCategory = (category) => {
+		setActiveCategory(category)
+	}
 
 	return (
 		<SafeAreaView className="flex-1 bg-white">
@@ -89,13 +91,13 @@ const HomeScreen = () => {
 				</View>
 				{/* categories */}
 				<View>
-					{
+					{categories.length > 0 && (
 						<Categories
 							categories={categories}
 							handleChangeCategory={handleChangeCategory}
 							activeCategory={activeCategory}
 						/>
-					}
+					)}
 				</View>
 			</ScrollView>
 		</SafeAreaView>
