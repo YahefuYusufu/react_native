@@ -4,16 +4,19 @@ import {
 	Image,
 	SafeAreaView,
 	ScrollView,
-	StyleSheet,
 	Text,
 	TextInput,
+	TouchableOpacity,
 	View,
 } from "react-native"
 import {
 	widthPercentageToDP as wp,
 	heightPercentageToDP as hp,
 } from "react-native-responsive-screen"
-import { BellIcon, MagnifyingGlassIcon } from "react-native-heroicons/outline"
+import {
+	BookmarkIcon,
+	MagnifyingGlassIcon,
+} from "react-native-heroicons/outline"
 import axios from "axios"
 import Categories from "../components/Categories"
 import Recipes from "../components/Recipes"
@@ -72,11 +75,15 @@ const HomeScreen = () => {
 				className="space-y-6 pt-2">
 				{/* avatar and bell icon */}
 				<View className="mx-4 flex-row justify-between items-center mb-2">
-					<Image
-						source={require("../../assets/images/avatar.png")}
-						style={{ height: hp(5), width: hp(5.5) }}
-					/>
-					<BellIcon size={hp(4)} color="gray" />
+					<TouchableOpacity>
+						<Image
+							source={require("../../assets/images/avatar.png")}
+							style={{ height: hp(5), width: hp(5.5) }}
+						/>
+					</TouchableOpacity>
+					<TouchableOpacity>
+						<BookmarkIcon size={hp(4)} color="gray" />
+					</TouchableOpacity>
 				</View>
 				{/* greetings and punchline */}
 				<View className="mx-4 space-y-2 mb-2">
