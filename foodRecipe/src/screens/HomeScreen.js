@@ -13,10 +13,7 @@ import {
 	widthPercentageToDP as wp,
 	heightPercentageToDP as hp,
 } from "react-native-responsive-screen"
-import {
-	BookmarkIcon,
-	MagnifyingGlassIcon,
-} from "react-native-heroicons/outline"
+import { BookmarkIcon, MagnifyingGlassIcon } from "react-native-heroicons/solid"
 import axios from "axios"
 import Categories from "../components/Categories"
 import Recipes from "../components/Recipes"
@@ -82,7 +79,7 @@ const HomeScreen = () => {
 						/>
 					</TouchableOpacity>
 					<TouchableOpacity>
-						<BookmarkIcon size={hp(4)} color="gray" />
+						<BookmarkIcon size={hp(4)} color="green" />
 					</TouchableOpacity>
 				</View>
 				{/* greetings and punchline */}
