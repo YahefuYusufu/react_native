@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import HomeScreen from "../screens/HomeScreen"
 import WelcomeScreen from "../screens/WelcomeScreen"
 import RecipeDetailScreen from "../screens/RecipeDetailScreen"
+import FavoriteScreen from "../screens/FavoriteScreen"
 
 const Stack = createNativeStackNavigator()
 
@@ -15,6 +16,7 @@ const AppNavigation = () => {
 				<Stack.Screen name="Home" component={HomeScreen} />
 				<Stack.Screen name="Welcome" component={WelcomeScreen} />
 				<Stack.Screen name="RecipeDetail" component={RecipeDetailScreen} />
+				<Stack.Screen name="Favorite" component={FavoriteScreen} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	)

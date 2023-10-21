@@ -24,7 +24,7 @@ const WelcomeScreen = () => {
 			() => (ring2padding.value = withSpring(ring2padding.value + hp(5.5))),
 			300
 		)
-		setTimeout(() => navigation.navigate("Home"), 1500)
+		setTimeout(() => navigation.navigate("Home"), 3500)
 	}, [])
 
 	return (

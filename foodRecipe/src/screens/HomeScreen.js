@@ -17,12 +17,13 @@ import { BookmarkIcon, MagnifyingGlassIcon } from "react-native-heroicons/solid"
 import axios from "axios"
 import Categories from "../components/Categories"
 import Recipes from "../components/Recipes"
-import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry"
+import { useNavigation } from "@react-navigation/native"
 
 const HomeScreen = () => {
 	const [activeCategory, setActiveCategory] = useState("Beef")
 	const [categories, setCategories] = useState([])
 	const [meals, setMeals] = useState([])
+	const navigation = useNavigation()
 
 	useEffect(() => {
 		getCategories()
@@ -79,7 +80,11 @@ const HomeScreen = () => {
 						/>
 					</TouchableOpacity>
 					<TouchableOpacity>
-						<BookmarkIcon size={hp(4)} color="green" />
+						<BookmarkIcon
+							size={hp(4)}
+							color="gray"
+							onPress={() => navigation.navigate("Favorite")}
+						/>
 					</TouchableOpacity>
 				</View>
 				{/* greetings and punchline */}
