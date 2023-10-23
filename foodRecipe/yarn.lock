@@ -4522,13 +4522,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"events@npm:^3.2.0":
-  version: 3.3.0
-  resolution: "events@npm:3.3.0"
-  checksum: f6f487ad2198aa41d878fa31452f1a3c00958f46e9019286ff4787c84aac329332ab45c9cdc8c445928fc6d7ded294b9e005a7fce9426488518017831b272780
-  languageName: node
-  linkType: hard
-
 "exec-async@npm:^2.2.0":
   version: 2.2.0
   resolution: "exec-async@npm:2.2.0"
@@ -4945,11 +4938,9 @@ __metadata:
     react-native: 0.72.6
     react-native-heroicons: ^3.2.0
     react-native-reanimated: ~3.3.0
-    react-native-responsive-screen: ^1.4.2
     react-native-safe-area-context: 4.6.3
     react-native-screens: ~3.22.0
     react-native-svg: 13.9.0
-    react-native-youtube-iframe: ^2.3.0
     tailwindcss: 3.3.2
   languageName: unknown
   linkType: soft
@@ -8082,15 +8073,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-responsive-screen@npm:^1.4.2":
-  version: 1.4.2
-  resolution: "react-native-responsive-screen@npm:1.4.2"
-  peerDependencies:
-    react-native: ">=0.35"
-  checksum: f854d42e2fdfde80f31b9d3eab3bc9665cf312e5b3953b4a14dc36dc27b2dbe03b8520880ea267376eea7b664af7eb900ae88ef4004a65820b48ad9ac2fc5feb
-  languageName: node
-  linkType: hard
-
 "react-native-safe-area-context@npm:4.6.3":
   version: 4.6.3
   resolution: "react-native-safe-area-context@npm:4.6.3"
@@ -8124,25 +8106,6 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: f4fe1c9e802d7ea86b9efef74313a80fb75d486f40ca79aaa04d42ffd3f6e462a3f37ee54018fae9fd1efdc2d8b005d1e71b02bb266c0ab8baec70d9a5730892
-  languageName: node
-  linkType: hard
-
-"react-native-youtube-iframe@npm:^2.3.0":
-  version: 2.3.0
-  resolution: "react-native-youtube-iframe@npm:2.3.0"
-  dependencies:
-    events: ^3.2.0
-  peerDependencies:
-    react: ">=16.8.6"
-    react-native: ">=0.60"
-    react-native-web-webview: ">=1.0.2"
-    react-native-webview: ">=7.0.0"
-  peerDependenciesMeta:
-    react-native-web-webview:
-      optional: true
-    react-native-webview:
-      optional: true
-  checksum: c549f3557c30fa9236eb7209ad3dac95482e62319350ddcfdfacb7cb10ca50e822c1ae553afd6fc3b22408a9ae14e3119dcd99ae6c73da50cdb286e8c9f5812f
   languageName: node
   linkType: hard
 

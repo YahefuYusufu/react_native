@@ -1,47 +1,33 @@
 import React, { useEffect } from "react"
 import { StatusBar } from "expo-status-bar"
-import { Image, View, Text } from "react-native"
-import {
-	widthPercentageToDP as wp,
-	heightPercentageToDP as hp,
-} from "react-native-responsive-screen"
+import { Image, View } from "react-native"
 import Animated, { useSharedValue, withSpring } from "react-native-reanimated"
 import { useNavigation } from "@react-navigation/native"
 
 const WelcomeScreen = () => {
-	const ring1padding = useSharedValue(0)
-	const ring2padding = useSharedValue(0)
+	const ringPadding = useSharedValue(0)
 	const navigation = useNavigation()
 
 	useEffect(() => {
-		ring1padding.value = 0
-		ring2padding.value = 0
+		ringPadding.value = 0
 		setTimeout(
-			() => (ring1padding.value = withSpring(ring1padding.value + hp(5))),
+			() => (ringPadding.value = withSpring(ringPadding.value + 29)),
 			100
-		)
-		setTimeout(
-			() => (ring2padding.value = withSpring(ring2padding.value + hp(5.5))),
-			300
 		)
 		setTimeout(() => navigation.navigate("Home"), 3500)
 	}, [])
 
 	return (
-		<View className="flex-1 justify-center items-center space-y-10 bg-amber-500">
+		<View className="flex-1 justify-center items-center space-y-10 bg-slate-400">
 			<StatusBar style="light" />
 			{/* logo image with rings */}
 			<Animated.View
 				className="bg-white/20 rounded-full"
-				style={{ padding: ring2padding }}>
-				<Animated.View
-					className="bg-white/20 rounded-full"
-					style={{ padding: ring1padding }}>
-					<Image
-						source={require("../../assets/images/welcome.png")}
-						style={{ width: hp(20), height: hp(20) }}
-					/>
-				</Animated.View>
+				style={{ padding: ringPadding }}>
+				<Image
+					source={require("../../assets/images/wrap_sandwich.png")}
+					style={{ width: 270, height: 270 }}
+				/>
 			</Animated.View>
 		</View>
 	)

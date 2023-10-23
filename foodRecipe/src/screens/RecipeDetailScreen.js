@@ -5,20 +5,8 @@ import { useNavigation } from "@react-navigation/native"
 import axios from "axios"
 import Loading from "../components/Loading"
 import { CachedImage } from "../helpers/image"
-import {
-	widthPercentageToDP as wp,
-	heightPercentageToDP as hp,
-} from "react-native-responsive-screen"
-import {
-	ChevronLeftIcon,
-	ClockIcon,
-	FireIcon,
-} from "react-native-heroicons/outline"
-import {
-	HeartIcon,
-	Square3Stack3DIcon,
-	UsersIcon,
-} from "react-native-heroicons/solid"
+import { ChevronLeftIcon } from "react-native-heroicons/outline"
+import { HeartIcon } from "react-native-heroicons/solid"
 import Animated, { FadeInDown, FadeIn } from "react-native-reanimated"
 
 const RecipeDetailScreen = (props) => {
@@ -68,8 +56,8 @@ const RecipeDetailScreen = (props) => {
 					url={item?.strMealThumb}
 					sharedTransition={item.strMeal}
 					style={{
-						width: wp(98),
-						height: hp(50),
+						width: "98%",
+						height: 400,
 						borderRadius: 53,
 						borderBottomLeftRadius: 40,
 						borderBottomRightRadius: 40,
@@ -84,13 +72,13 @@ const RecipeDetailScreen = (props) => {
 				<TouchableOpacity
 					onPress={() => navigation.goBack()}
 					className="p-2 rounded-full ml-4 bg-white ">
-					<ChevronLeftIcon size={hp(3.5)} strokeWidth={4.5} color="#fbbf24" />
+					<ChevronLeftIcon size={32} strokeWidth={4.5} color="green" />
 				</TouchableOpacity>
 				<TouchableOpacity
 					onPress={() => setIsFavorite(!isFavorite)}
 					className="p-2 rounded-full mr-5 bg-white">
 					<HeartIcon
-						size={hp(3.5)}
+						size={32}
 						strokeWidth={4.5}
 						color={isFavorite ? "red" : "gray"}
 					/>
@@ -106,12 +94,12 @@ const RecipeDetailScreen = (props) => {
 						entering={FadeInDown.duration(700).springify().damping(12)}
 						className="space-y-2">
 						<Text
-							style={{ fontSize: hp(3) }}
+							style={{ fontSize: 32 }}
 							className="font-bold flex-1 text-neutral-700">
 							{meal?.strMeal}
 						</Text>
 						<Text
-							style={{ fontSize: hp(2) }}
+							style={{ fontSize: 18 }}
 							className="font-medium flex-1 text-neutral-500">
 							{meal?.strArea}
 						</Text>
@@ -124,7 +112,7 @@ const RecipeDetailScreen = (props) => {
 							.damping(12)}
 						className="space-y-4">
 						<Text
-							style={{ fontSize: hp(2.5) }}
+							style={{ fontSize: 24 }}
 							className="font-bold flex-1 text-neutral-700">
 							Ingredients
 						</Text>
@@ -133,17 +121,17 @@ const RecipeDetailScreen = (props) => {
 								return (
 									<View key={i} className="flex-row space-x-4">
 										<View
-											style={{ height: hp(1.5), width: hp(1.5) }}
-											className="bg-amber-300 rounded-full"
+											style={{ height: 18, width: 18 }}
+											className="bg-green-600 rounded-full"
 										/>
 										<View className="flex-row space-x-2">
 											<Text
-												style={{ fontSize: hp(1.7) }}
+												style={{ fontSize: 14 }}
 												className="font-extrabold text-neutral-700">
 												{meal["strMeasure" + i]}
 											</Text>
 											<Text
-												style={{ fontSize: hp(1.7) }}
+												style={{ fontSize: 16 }}
 												className="font-medium text-neutral-600">
 												{meal["strIngredient" + i]}
 											</Text>
@@ -161,11 +149,11 @@ const RecipeDetailScreen = (props) => {
 							.damping(12)}
 						className="space-y-4">
 						<Text
-							style={{ fontSize: hp(2.5) }}
+							style={{ fontSize: 18 }}
 							className="font-bold flex-1 text-neutral-700">
 							Instructions
 						</Text>
-						<Text style={{ fontSize: hp(1.6) }} className="text-neutral-700">
+						<Text style={{ fontSize: 14 }} className="text-neutral-700">
 							{meal?.strInstructions}
 						</Text>
 					</Animated.View>

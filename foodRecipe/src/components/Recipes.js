@@ -1,10 +1,5 @@
 import React from "react"
 import { View, Text } from "react-native"
-import { mealData } from "../constants/categoryData"
-import {
-	widthPercentageToDP as wp,
-	heightPercentageToDP as hp,
-} from "react-native-responsive-screen"
 import MasonryList from "@react-native-seoul/masonry-list"
 import Loading from "./Loading"
 import { useNavigation } from "@react-navigation/native"
@@ -15,9 +10,7 @@ const Recipes = ({ categories, meals }) => {
 
 	return (
 		<View className="mx-4 space-y-3">
-			<Text
-				style={{ fontSize: hp(3) }}
-				className="font-semibold text-neutral-600 text-center">
+			<Text className="font-semibold text-3xl text-slate-700 text-center ">
 				Recipes
 			</Text>
 			<View>
