@@ -13,14 +13,13 @@ const Categories = ({ categories, handleChangeCategory, activeCategory }) => {
 				contentContainerStyle={{ paddingHorizontal: 5 }}>
 				{categories.map((cat, index) => {
 					let isActive = cat.strCategory == activeCategory
-					let activeButtonClass = isActive ? " bg-green-400" : " bg-black/10"
 
 					return (
 						<TouchableOpacity
 							key={index}
 							className="flex items-center space-y-1"
 							onPress={() => handleChangeCategory(cat.strCategory)}>
-							<View className={"rounded-full p-[6px]" + activeButtonClass}>
+							<View className={"rounded-full p-[6px] bg-gray-200"}>
 								<CachedImage
 									url={cat.strCategoryThumb}
 									style={{ width: 58, height: 58 }}
