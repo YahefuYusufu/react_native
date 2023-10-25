@@ -15,7 +15,6 @@ import Recipes from "../components/Recipes"
 import { useNavigation } from "@react-navigation/native"
 
 const HomeScreen = () => {
-	const [activeCategory, setActiveCategory] = useState("Beef")
 	const [categories, setCategories] = useState([])
 	const [meals, setMeals] = useState([])
 	const navigation = useNavigation()
@@ -27,7 +26,6 @@ const HomeScreen = () => {
 
 	const handleChangeCategory = (category) => {
 		getRecipes(category)
-		setActiveCategory(category)
 		setMeals([])
 	}
 
@@ -109,7 +107,6 @@ const HomeScreen = () => {
 						<Categories
 							categories={categories}
 							handleChangeCategory={handleChangeCategory}
-							activeCategory={activeCategory}
 						/>
 					)}
 				</View>

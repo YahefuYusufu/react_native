@@ -3,7 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity } from "react-native"
 import Animated, { FadeInDown } from "react-native-reanimated"
 import { CachedImage } from "../helpers/image"
 
-const Categories = ({ categories, handleChangeCategory, activeCategory }) => {
+const Categories = ({ categories, handleChangeCategory }) => {
 	return (
 		<Animated.View entering={FadeInDown.duration(500).springify()}>
 			<ScrollView
@@ -12,8 +12,6 @@ const Categories = ({ categories, handleChangeCategory, activeCategory }) => {
 				className="space-x-2"
 				contentContainerStyle={{ paddingHorizontal: 5 }}>
 				{categories.map((cat, index) => {
-					let isActive = cat.strCategory == activeCategory
-
 					return (
 						<TouchableOpacity
 							key={index}
