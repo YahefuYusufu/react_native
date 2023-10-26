@@ -1,36 +1,35 @@
 {
-  "expo": {
-    "name": "Food Recipe APP",
-    "slug": "foodRecipe",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.prg.foodRecipe"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "62463d70-800d-4dcc-8159-1e3d69f9899a"
-      }
-    }
-  }
+	"expo": {
+		"name": "Food Recipe APP",
+		"slug": "foodRecipe",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./assets/hum.jpeg",
+		"userInterfaceStyle": "light",
+		"splash": {
+			"image": "./assets/splash.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#ffffff"
+		},
+		"assetBundlePatterns": ["**/*"],
+		"ios": {
+			"supportsTablet": true,
+			"bundleIdentifier": "com.prg.foodRecipe",
+			"buildNumber": "2"
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/adaptive-icon.png",
+				"backgroundColor": "#ffffff"
+			}
+		},
+		"web": {
+			"favicon": "./assets/favicon.png"
+		},
+		"extra": {
+			"eas": {
+				"projectId": "62463d70-800d-4dcc-8159-1e3d69f9899a"
+			}
+		}
+	}
 }
