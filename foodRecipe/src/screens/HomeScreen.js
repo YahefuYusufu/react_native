@@ -12,12 +12,10 @@ import { BookmarkIcon } from "react-native-heroicons/solid"
 import axios from "axios"
 import Categories from "../components/Categories"
 import Recipes from "../components/Recipes"
-import { useNavigation } from "@react-navigation/native"
 
 const HomeScreen = () => {
 	const [categories, setCategories] = useState([])
 	const [meals, setMeals] = useState([])
-	const navigation = useNavigation()
 
 	useEffect(() => {
 		getCategories()
@@ -75,11 +73,7 @@ const HomeScreen = () => {
 						/>
 					</TouchableOpacity>
 					<TouchableOpacity>
-						<BookmarkIcon
-							size={38}
-							color="green"
-							onPress={() => navigation.navigate("Favorite")}
-						/>
+						<BookmarkIcon size={38} color="green" />
 					</TouchableOpacity>
 				</View>
 				{/* greetings and punchline */}

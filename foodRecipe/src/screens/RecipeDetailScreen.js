@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react"
-import {
-	Text,
-	View,
-	ScrollView,
-	TouchableOpacity,
-	SafeAreaView,
-} from "react-native"
+import { Text, View, ScrollView, TouchableOpacity } from "react-native"
 import { StatusBar } from "expo-status-bar"
 import { useNavigation } from "@react-navigation/native"
 import axios from "axios"
