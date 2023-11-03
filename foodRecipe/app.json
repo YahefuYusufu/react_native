@@ -1,15 +1,15 @@
 {
 	"expo": {
-		"name": "Food Recipe APP",
+		"name": "Polo Food",
 		"slug": "foodRecipe",
 		"version": "1.0.0",
 		"orientation": "portrait",
-		"icon": "./assets/appstore.png",
+		"icon": "./assets/icon.png",
 		"userInterfaceStyle": "light",
 		"splash": {
-			"image": "./assets/appstore.png",
+			"image": "./assets/splash.png",
 			"resizeMode": "contain",
-			"backgroundColor": "#fff"
+			"backgroundColor": "#000"
 		},
 		"assetBundlePatterns": ["**/*"],
 		"ios": {
@@ -20,7 +20,7 @@
 		"android": {
 			"adaptiveIcon": {
 				"foregroundImage": "./assets/adaptive-icon.png",
-				"backgroundColor": "#ffffff"
+				"backgroundColor": "##000"
 			}
 		},
 		"web": {
