@@ -74,7 +74,8 @@ const RecipeDetailScreen = (props) => {
 					className="p-2 rounded-full ml-4 bg-white ">
 					<ChevronLeftIcon size={32} strokeWidth={4.5} color="green" />
 				</TouchableOpacity>
-				<TouchableOpacity
+				{/* will add this func next version */}
+				{/* <TouchableOpacity
 					onPress={() => setIsFavorite(!isFavorite)}
 					className="p-2 rounded-full mr-5 bg-white">
 					<HeartIcon
@@ -82,7 +83,7 @@ const RecipeDetailScreen = (props) => {
 						strokeWidth={4.5}
 						color={isFavorite ? "red" : "gray"}
 					/>
-				</TouchableOpacity>
+				</TouchableOpacity> */}
 			</Animated.View>
 			{/* meal description */}
 			{loading ? (

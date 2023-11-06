@@ -2,9 +2,9 @@
 	"expo": {
 		"name": "Polo Food",
 		"slug": "foodRecipe",
-		"version": "1.0.1",
+		"version": "1.0.4",
 		"orientation": "portrait",
-		"icon": "./assets/icon.png",
+		"icon": "./assets/images/todoIcon.png",
 		"userInterfaceStyle": "light",
 		"splash": {
 			"image": "./assets/splash.png",
@@ -15,7 +15,7 @@
 		"ios": {
 			"supportsTablet": true,
 			"bundleIdentifier": "com.prg.foodRecipe",
-			"buildNumber": "6"
+			"buildNumber": "8"
 		},
 		"android": {
 			"adaptiveIcon": {

@@ -72,9 +72,10 @@ const HomeScreen = () => {
 							}}
 						/>
 					</TouchableOpacity>
-					<TouchableOpacity>
+					{/* will add this func next version */}
+					{/* <TouchableOpacity>
 						<BookmarkIcon size={38} color="green" />
-					</TouchableOpacity>
+					</TouchableOpacity> */}
 				</View>
 				{/* greetings and punchline */}
 				<View className="mx-4 space-y-2 mb-2">
